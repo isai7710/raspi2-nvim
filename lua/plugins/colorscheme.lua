@@ -21,7 +21,7 @@ return {
       --   colored_indent_levels = false,
       -- },
       treesitter = true,
-      -- mason = true,
+      mason = true,
       telescope = {
         enabled = true,
       },
