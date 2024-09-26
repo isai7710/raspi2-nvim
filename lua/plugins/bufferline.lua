@@ -18,16 +18,11 @@ return {
     vim.keymap.set('n', 'b[', ':BufferLineMovePrev<CR>', { desc = 'Reorder current buffer left' })
     vim.keymap.set('n', 'bp', ':BufferLineTogglePin<CR>', { desc = 'Pin current buffer' })
 
-    local highlights = require('nord').bufferline.highlights({
-      italic = true,
-      bold = true,
-    })
-
     local bufferline = require('bufferline')
     bufferline.setup({
       options = {
         diagnostics = "nvim_lsp",
-        separator_style = "thick",
+        separator_style = "thin",
         show_close_icon = false,
         show_tab_indicators = true,
         offsets = {
@@ -39,7 +34,10 @@ return {
           }
         },
       },
-      highlights = highlights
+            highlights = require("catppuccin.groups.integrations.bufferline").get {
+        styles = { "bold" },
+      },
+
     })
   end
 }
