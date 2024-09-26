@@ -13,6 +13,7 @@ return {
     },
     integrations = {
       bufferline = true,
+      nvimtree = true,
       -- cmp = true,
       -- gitsigns = true,
       -- indent_blankline = {
@@ -26,7 +27,6 @@ return {
         enabled = true,
       },
       which_key = true,
-      neotree = true,
     },
   },
   init = function()
