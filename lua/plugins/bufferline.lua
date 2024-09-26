@@ -27,7 +27,7 @@ return {
         show_tab_indicators = true,
         offsets = {
           {
-            filetype = "neo-tree",
+            filetype = "NvimTree",
             text = "",
             highlight = "Directory",
             text_align = "center"
