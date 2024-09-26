@@ -50,34 +50,6 @@ return {
     local luasnip = require('luasnip')
     luasnip.config.setup({})
     
-    local cmp_kinds = {
-      Text = '  ',
-      Method = '  ',
-      Function = '  ',
-      Constructor = '  ',
-      Field = '  ',
-      Variable = '  ',
-      Class = '  ',
-      Interface = '  ',
-      Module = '  ',
-      Property = '  ',
-      Unit = '  ',
-      Value = '  ',
-      Enum = '  ',
-      Keyword = '  ',
-      Snippet = '  ',
-      Color = '  ',
-      File = '  ',
-      Reference = '  ',
-      Folder = '  ',
-      EnumMember = '  ',
-      Constant = '  ',
-      Struct = '  ',
-      Event = '  ',
-      Operator = '  ',
-      TypeParameter = '  ',
-    } 
-
     cmp.setup({
       -- disable completion when commenting in code
       enabled = function()
@@ -95,24 +67,6 @@ return {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
-      },
-      -- display the source of the completion items in the menu along with our custom icons
-      formatting = {
-        expandable_indicator = false,
-        fields = { 'abbr', 'kind', 'menu' },
-        format = function(entry, vim_item)
-          -- Icons
-          vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
-          -- Source
-          vim_item.menu = ({
-            buffer = "[Buffer]",
-            nvim_lsp = "[LSP]",
-            luasnip = "[LuaSnip]",
-            nvim_lua = "[Lua]",
-            latex_symbols = "[LaTeX]",
-          })[entry.source.name]
-          return vim_item
-        end
       },
       -- adding border to windows
       window = {
